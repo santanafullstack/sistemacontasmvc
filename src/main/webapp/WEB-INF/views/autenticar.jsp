@@ -1,11 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+    
 <!DOCTYPE html>
 <html>
 <head>
 
 	<meta charset="ISO-8859-1">
-	<title>Insert title here</title>
+	<title>Autenticar Usuário</title>
 
 	<!-- CDN da folha de estilos CSS do bootstrap -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
@@ -29,17 +32,21 @@
 					</div>
 					
 					<hr/>
+					
+					<p class="text-danger">
+						${mensagem_erro}
+					</p>
 	
-					<form id="form_autenticar">
+					<form id="form_autenticar" action="autenticar-usuario" method="post">
 	
 						<div class="mb-2">
 							<label>Entre com o seu email:</label>
-							<input type="text" name="email" class="form-control"/>
+							<form:input path="model.email" type="text" name="email" class="form-control"/>
 						</div>
 		
 						<div class="mb-2">
 							<label>Entre com a sua senha</label>
-							<input type="password" name="senha" class="form-control"/>
+							<form:input path="model.senha" type="password" name="senha" class="form-control"/>
 							<div class="text-end">
 								<a href="/sistemacontas/recuperar-senha">
 									Esqueci minha senha?
@@ -90,3 +97,8 @@
 
 </body>
 </html>
+
+
+
+
+

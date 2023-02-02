@@ -1,4 +1,6 @@
-package br.com.cotiinformatica.models;
+package br.com.cotiinformatica.dtos;
+
+import java.util.Date;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,9 +13,11 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class CriarUsuarioModel {
+public class UsuarioDTO {
 
+	private Integer idUsuario;
 	private String nome;
 	private String email;
-	private String senha;
+	private Date dataHoraAcesso;
+
 }

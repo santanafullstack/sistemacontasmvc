@@ -11,9 +11,11 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class CriarUsuarioModel {
+public class AutenticarModel {
 
-	private String nome;
 	private String email;
 	private String senha;
+	
 }
+
+
