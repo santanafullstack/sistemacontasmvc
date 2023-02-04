@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,6 +12,11 @@
 
 	<!-- CDN da folha de estilos CSS do bootstrap -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+	
+	<style>
+		label.error { color: #df4759; }
+		input.error { border: 2px solid #df4759; }
+	</style>
 
 </head>
 <body>
@@ -24,12 +32,20 @@
 					</div>
 					
 					<hr/>
+					
+					<div class="text-success">
+						<strong>${mensagem_sucesso}</strong>
+					</div>
+					
+					<div class="text-danger">
+						<strong>${mensagem_erro}</strong>
+					</div>
 	
-					<form id="form_recuperarsenha">
+					<form id="form_recuperarsenha" action="recuperacao-de-senha" method="post">
 	
 						<div class="mb-2">
 							<label>Entre com o seu email:</label>
-							<input type="text" name="email" class="form-control"/>
+							<form:input path="model.email" type="text" name="email" class="form-control"/>
 						</div>
 				
 						<div class="mb-2 d-grid">
@@ -51,9 +67,6 @@
 	
 	<!-- CDN do arquivo javascript do bootstrap -->	
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-
-
-	
 	
 	<!-- CDN do arquivo javascript do JQuery -->
 	<script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
@@ -68,7 +81,7 @@
 
 			$("#form_recuperarsenha").validate({
 				rules: {
-					'email' : { required: true, email : true },
+					'email' : { required: true, email : true }
 				}
 			});
 			
@@ -77,6 +90,11 @@
 
 </body>
 </html>
+
+
+
+
+
 
 
 
